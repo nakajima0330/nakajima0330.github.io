@@ -1,3 +1,8 @@
 .bottom_space {
   margin-bottom: 10em;
 }
+
+.img_scale {
+  width: "20px";
+  height: "200px";
+}
