@@ -1,0 +1,82 @@
+<!--
+ This is the explanation page of logistic map.
+-->
+
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="sample.css">
+    <title>Home Page of Y. Nakajima</title>
+
+
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" }},
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { matchFontHeight: false },
+        displayAlign: "left",
+        displayIndent: "2em"
+      });
+    </script>
+
+  </head>
+
+  <body>
+    <h2>3. Logistic Map</h2>
+
+    <p class="bottom_space">
+      Logistic map is a one-dimensional (1D) discrete dynamical systems written by
+      \[
+      x_{n+1} = ax_n(1-x_n),
+      \]
+      where $x_n$ is a steppng point on a line bitween 0 and 1. <br>
+      $\textit{For example}$, this system represents the population per period when the reproductive rate is non-linear. <br>
+      The stepping point travels to the next place at $x_{n+1}$ after the $n$ counts up.<br>
+      Here, we can see the interesting trajectory of $x_n$ as shown below, when the parameter of $a$ changes.<br>
+      <img src="logistic_map.gif" width=800, height="400"><br>
+      The figure on the right shows the dependence of $x_{n+1}$ on $n$ steps.
+      The complex trajectory in the range of $3.56 < a < 4.00$ is called as "Chaos".<br>
+      Chaos is a behavior in which the trajectory changes significantly with small differences in initial values. <br>
+      In the case of logistic map, the chaos is caused by the "discreteness" of the system.<br>
+      If this system is continuous for time, we should replace the above relation by
+      \[
+      \frac{d}{dt} x = ( a - 1 ) x ( 1 - \frac{a}{a-1}x ).
+      \]
+      This equation can be solved analytically as follows:
+      \[
+      x(t) = \frac{(a-1)x(0)}{ax(0)(1-\rm{e}^{-(a-1)t}) + (a-1) \rm{e}^{-(a-1)t}}.
+      \]
+      Thus, the continuous logistic map does not appear any chaos behavior.<br>
+    </p>
+
+
+    <p>
+      Let's go back to the discrete one again and see the detail.<br>
+      <img src="logisticmap/a_1.png" width=500, height="250"><br> 
+
+    </p>
+    
+    <img src="logisticmap/1_a_2.png" width=500, height="250"><br>
+    <img src="logisticmap/2_a_3.png" width=500, height="250"><br>
+    <img src="logisticmap/2_value.png" width=500, height="250"><br>
+    <img src="logisticmap/4_value.png" width=500, height="250"><br>
+    <img src="logisticmap/multi_value.png" width=500, height="250"><br>
+    <img src="logisticmap/chaos.png" width=500, height="250"><br>
+
+
+
+    <h2>Some Useful Links</h2>
+    <p>
+    &#9679;  <a href="https://github.com/nakajima0330">This page's source <br></a>
+    &#9679;  <a href="https://nakajima0330.github.io">Top Page <br></a>   
+    </p>
+    &#9679;  <a href="https://nakajima0330.github.io/subpage.html">Calculation and Animation<br></a>
+
+  </body>
+</html>
