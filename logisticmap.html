@@ -9,7 +9,9 @@
     <title>Home Page of Y. Nakajima</title>
 
 
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['\$','\$'],['\\(','\\)']],processEscapes:true},CommonHTML: {matchFontHeight:false}});</script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({tex2jax:{inlineMath:[['\$','\$'],['\\(','\\)']],processEscapes:true},CommonHTML: {matchFontHeight:false}});
+    </script>
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
@@ -29,7 +31,8 @@
       where $x_n$ is a steppng point on a line bitween 0 and 1. <br>
       $\textit{For example}$, this system represents the population per period when the reproductive rate is non-linear. <br>
       The stepping point travels to the next place at $x_{n+1}$ after the $n$ counts up.<br>
-      Here, we can see the interesting trajectory of $x_n$ as shown below, when the parameter of $a$ changes.<br>
+      Here, we can see the interesting trajectory of $x_n$ when the parameter of $a$ changes.<br>
+      These trajectory in the below gif are in the two case of $x_0=0.40$ and 0.41.
       <img src="logistic_map.gif" width=800, height="400"><br>
       The figure on the right shows the dependence of $x_{n+1}$ on $n$ steps.
       The complex trajectory in the range of $3.56 < a < 4.00$ is called as "Chaos".<br>
@@ -43,23 +46,49 @@
       \[
       x(t) = \frac{(a-1)x(0)}{ax(0)(1-\rm{e}^{-(a-1)t}) + (a-1) \rm{e}^{-(a-1)t}}.
       \]
-      Thus, the continuous logistic map does not appear any chaos behavior.<br>
+      This solution shows that $x(t)$ converges to 0 or $(a-1)/a$ at $t \rightarrow \infty$, even starting from any initial value of $x(0)$. <br>
+      Thus, the continuous logistic map does not appear the chaos behavior.<br>
     </p>
 
 
     <p style="text-align:center">
-      Let's go back to the discrete one again and see the detail.<br>
-      <img src="logisticmap/a_1.png" width=500, height="250"><br> 
-
+      Let's go back to the discrete one again and see the detail in the case of $x_0=0.40$ and 0.41.<br>
+      At first, in range of $0< a < 1$, the $x_n$ converges to 0, as shown in this figure($a=0.8$).<br>
+      <img src="logisticmap/a_1.png" width=500, height="250"><br>
+      Also, when $1 < a < 2 $, the $x_n$ converges to $(a-1)/a$ (figure: $a=1.26$).<br>
+      <img src="logisticmap/1_a_2.png" width=500, height="250"><br>
+      These limitation can be calculated by the steady equation as follows:
+      \[
+      x_n = ax_n (1-x_n).
+      \]
+      This is a quadratic equation that can be solved algebraically.<br>
+      The solutions are 0 and $(a-1)/a$.<br>
+      We can understand that the $x_n$ converges to the steady-solution of it.<br>
+      Hereinafter we call the solution $x^*$.<br>
     </p>
     
     <p style="text-align:center">
-    <img src="logisticmap/1_a_2.png" width=500, height="250"><br>
-    <img src="logisticmap/2_a_3.png" width=500, height="250"><br>
-    <img src="logisticmap/2_value.png" width=500, height="250"><br>
-    <img src="logisticmap/4_value.png" width=500, height="250"><br>
-    <img src="logisticmap/multi_value.png" width=500, height="250"><br>
-    <img src="logisticmap/chaos.png" width=500, height="250"><br>      
+      However, when the $a$ becomes larger than 2, $x_n$ starts oscillating around the $x^*$.<br>
+      The oscillation is caused by the negative growth rate, where the magnitude relation between $x_{n}$ and $x_{n+1}$ changes step by step around the $x^*$. <br>
+      In the range of $2 < a < 3$, the $x_n$ still converges to $x^*$(figure: $a=2.94$).<br>
+      <img src="logisticmap/2_a_3.png" width=500, height="250"><br>
+      And, as the $a$ increases, The trajectory gradually become difficult to close to $x^*$, and then two equilibrium values appear (figure: $a = 3.04$).<br>
+      <img src="logisticmap/2_value.png" width=500, height="250"><br>
+      These two value are also calcurated by a steady equation like above one.<br>
+      The equation is expressed by
+      \[
+      x_n = x_{n+2} = ax_{n+1}(1-x_{n+1}) = a(ax_n (1-x_n))(1-(ax_n(1-x_n))).
+      \]
+      This is a cubic equation, being solved by 0, (a-1)/a ($= x_1^*$), and the two solutions:
+      \[
+      x^*_{2\pm} = \frac{a+1 \pm \sqrt{(a+1)(a-3)}}{2a}.
+      \]
+      Therefore, $x_n$ is not stable in $x_1^*$ but in $x_{2\pm}^*$.<br>
+      The branches of such equilibrium point repeat further branching as a becomes larger.<br>
+      <img src="logisticmap/4_value.png" width=500, height="250"><br>
+      <img src="logisticmap/multi_value.png" width=500, height="250"><br>
+      And finally, the countless equilibrium points allow the chaotic trajectory to vary greatly with small deviations from the initial value.<br>
+      <img src="logisticmap/chaos.png" width=500, height="250"><br>
       
     </p>
 
